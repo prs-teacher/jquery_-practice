@@ -1,3 +1,8 @@
+/*値を取得するときに指定する引数、変数がわからずうまく値を表示できません。
+現状は、タイトルのみ記述していますが、タイトル：undefinedと表示されてしまいます。
+どこを確認すると引数、変数がわかりますでしょうか。
+レスポンス仕様かと思ったのですが、うまく表示できませんでした*/
+
 $(function(){
 
   $(".search-btn").on("click",function(){
@@ -10,7 +15,8 @@ $(function(){
     };
     const displayResult = function(){
       $(".message").remove();
-      $(".lists").prepend('<li class="list-item"><div class="list-inner"><p>タイトル：' + JSON.title + '</p></div></li>');
+//質問の該当箇所 →　　　　　　　→　　　　　　　→　　　　　　→　　　　　　→　　　　　　→　　　　　　→　  　↓
+      $(".lists").prepend('<li class="list-item"><div class="list-inner"><p>タイトル：' + settings.title + '</p></div></li>');
     };
     const displayError = function(){
     $(".lists").empty();
