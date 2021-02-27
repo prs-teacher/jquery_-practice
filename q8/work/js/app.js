@@ -1,20 +1,19 @@
 $(function(){
+  //pageCountに1を格納
+  let pageCount = 1;
+  //textを空にする
+      let text = "";
+
 //search-btnクラスを持つ要素をクリックした時
   $(".search-btn").on("click",function(){
 //searchWordに入力フォームの内容を格納
-    const searchWord = $("#search-input").val();
-//pageCountに1を格納
-    const pageCount = 1;
-//textを空にする
-    const text = "";
-
-/*この下の三項演算子を用いた部分で、textにsearchWordを代入できずエラーが出てしまいます。
-スコープの関係でしょうか。*/
-    //searchWord == text ?
-    //pageCount++ :
-　　//($(".lists").empty(),text = searchWord);
-
-
+    let searchWord = $("#search-input").val();
+//searchWordがtextと一致するなら
+    searchWord == text ?
+//pageCountに+1する
+    pageCount++ :
+//一致しなければlistsクラスをもつ要素の中身を空にしてtextにsearchWordの値を代入する
+　　($(".lists").empty(),text = searchWord);
 //settingsに設定情報などを格納
     const settings = {
       "url": `https://ci.nii.ac.jp/books/opensearch/search?title=${searchWord}&format=json&p=${pageCount}&count=20`,
@@ -32,6 +31,7 @@ $(function(){
       displayError(err)
     });
   });
+
 //関数名displayResultに仮引数CiNiを渡し
   function displayResult(CiNii) {
 //messageクラスを持つ要素を削除する
@@ -46,6 +46,7 @@ $(function(){
 //undifinedならばlistsクラスを持つ要素の前にテキストを追加する。
     $(".lists").before('<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索してください。</div>');
   };
+
 //関数displayErrorを定義する
   function displayError(){
 //listsクラスを持つ要素の中を空にする
@@ -55,12 +56,6 @@ $(function(){
 //listsクラスを持つ要素の前にdiv要素を追加してエラーメッセージを表示
     $(".lists").before('<div class="message">正常に通信できませんでした。<br>インターネットの接続を確認してください。</div>');
   };
-
-
-  //'<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索してください。</div>'
-
-
-
 
 //.reset-btnをクリックした時
   $(".reset-btn").on("click", function() {
