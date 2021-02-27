@@ -10,9 +10,9 @@ $(function(){
 
 /*この下の三項演算子を用いた部分で、textにsearchWordを代入できずエラーが出てしまいます。
 スコープの関係でしょうか。*/
-    //searchWord == text ?
-    //pageCount++ :
-　　//($(".lists").empty(),text = searchWord);
+    searchWord == text ?
+    pageCount++ :
+　　($(".lists").empty(),text = searchWord);
 
 
 //settingsに設定情報などを格納
