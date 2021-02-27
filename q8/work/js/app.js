@@ -10,9 +10,9 @@ $(function(){
 
 /*この下の三項演算子を用いた部分で、textにsearchWordを代入できずエラーが出てしまいます。
 スコープの関係でしょうか。*/
-    searchWord == text ?
-    pageCount++ :
-    ($(".lists").empty(),text = searchWord);
+    //searchWord == text ?
+    //pageCount++ :
+　　//($(".lists").empty(),text = searchWord);
 
 
 //settingsに設定情報などを格納
@@ -36,11 +36,16 @@ $(function(){
   function displayResult(CiNii) {
 //messageクラスを持つ要素を削除する
     $(".message").remove();
+//取得した要素の数が-1より大きいなら
+    console.log(CiNii[0]['items'].length);
+    CiNii[0]['items'].length > 0 ?
 //ajaxから取得したアイテムの数だけループさせる
     $.each(CiNii[0]['items'],function(i){
 //listsクラスの子要素の先頭にタイトル、作者、出版社、と書籍情報をクリックすると詳細に飛べるリンクの要素を追加
-      $(".lists").prepend('<li class="lists-item"><div class="list-inner"><p>タイトル：' + CiNii[0]['items'][i]['title'] + '</p><p>作者：' + CiNii[0]['items'][i]['dc:creator'] + '</p><p>出版社：' + CiNii[0]['items'][i]['dc:publisher'] + '</p><a href = "' + CiNii[0]['items'][i]['@id'] + '"target="_blank">書籍情報</a></div></li>');
-    });
+      $(".lists").prepend('<li class="lists-item"><div class="list-inner"><p>タイトル：' + CiNii[0]['items'][i]['title'] + '</p><p>作者：' + CiNii[0]['items'][i]['dc:creator'] + '</p><p>出版社：' + CiNii[0]['items'][i]['dc:publisher'] + '</p><a href = "' + CiNii[0]['items'][i]['@id'] + '"target="_blank">書籍情報</a></div></li>')
+    }):
+//下記の処理に入るとエラーが出てしまいます。
+    $(".lists").before('<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索してください。</div>');
   };
 //関数displayErrorを定義する
   function displayError(){
@@ -49,7 +54,7 @@ $(function(){
 //messageクラスを持つ要素を削除する
     $(".message").remove();
 //listsクラスを持つ要素の前にdiv要素を追加してエラーメッセージを表示
-    $(".lists").before('<div class="message">正常に通信できませんでした。<br>インターネットの接続を確認してください</div>');
+    $(".lists").before('<div class="message">正常に通信できませんでした。<br>インターネットの接続を確認してください。</div>');
   };
 
 
