@@ -13,10 +13,8 @@ $(function () {
   });
   //q4をクリックした時に
   $("#q4").on("click",function(){
-  //横幅を300px,高さを120pxにする
-    $(this).css({
-      "width":"300px","height":"120px"
-    })
+  //largeのクラス属性を追加する
+    $(this).addClass("large")
   });
   //q5をクリックした時に
   $("#q5").on("click",function(){
@@ -39,17 +37,15 @@ $(function () {
   });
 　//q8のイベントで
 　$("#q8").on({
-  //マウスが要素に乗ったときに横幅を300px,高さを120pxにする
+  //マウスが要素に乗ったときに
     "mouseenter":function(){
-      $(this).css({
-        "width":"300px","height":"120px"
-      });
+  //largeのclassを追加する
+      $(this).addClass("large")
     },
-  //マウスが要素から外れた時横幅を200px,高さを120pxにする
+  //マウスが要素から外れた時
     "mouseleave":function(){
-      $(this).css({
-        "width":"200px","height":"65px"
-      });
+  //largeのクラスを削除する
+      $(this).addClass("large")
     }
   });
 　//q9のliをクリックした時に
@@ -63,7 +59,7 @@ $(function () {
 　$("#q10 li").on("click",function(){
   //q10 liのインデックス番号をnumに代入して
   const num = $(this).index();
-  //q10 liのインデックス番号と同じ順番のq11のフォントサイズを30pxにする
-  $("#q11 li").eq(num).css("font-size","30px");
+  //q10 liのインデックス番号と同じ順番のq11にlarge-textのクラスを追加する。
+  $("#q11 li").eq(num).addClass("large-text");
 　})
 });
