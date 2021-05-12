@@ -23,20 +23,10 @@ $(function () {
   });
   $("#q5").on("click",function () {
     //セレクタをクリックした時に
-<<<<<<< HEAD
-    $(this).prepend("DOMの中の前");
-    //クリックしたセレクタの先頭に要素追加
-    $(this).append("DOMの中の後");
-    //クリックしたセレクタの末尾に要素追加
-    $(this).before("DOMの前");
-    //クリックしたセレクタの先頭に要素追加
-    $(this).after("DOMの後");
-=======
     $(this).prepend("DOMの中の前").append("DOMの中の後").before("DOMの前").after("DOMの後");
     //クリックしたセレクタの先頭に要素追加
     //クリックしたセレクタの末尾に要素追加
     //クリックしたセレクタの先頭に要素追加
->>>>>>> master
     //クリックしたセレクタの末尾に要素追加
   });
   $("#q6").on("click",function () {
@@ -61,22 +51,14 @@ $(function () {
   });
   $("#q9 li").on("click",function () {
     //セレクタをクリックした時に
-<<<<<<< HEAD
-    var index = $(this).index();
-=======
     const index = $(this).index();
->>>>>>> master
     //セレクタのindex番号取得
     alert(index);
     //アラート表示
   });
   $("#q10 li").on("click",function () {
     //セレクタをクリックした時に
-<<<<<<< HEAD
-    var index = $(this).index();
-=======
     const index = $(this).index();
->>>>>>> master
     //セレクタのindex番号取得、代入
     $("#q11 li").eq(index).addClass("large-text");
     //指定されたセレクタで、クリックされたセレクタのインデックス番号と同じインデックス番号の要素を呼び出しクラス追加
