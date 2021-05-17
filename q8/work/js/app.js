@@ -36,6 +36,7 @@ $(function () {
         ////★DOMの削除
         pageCount = 1;
         //★１ページめに戻る
+        console.log(pageCount);
       });
     //}
 
@@ -44,6 +45,7 @@ $(function () {
       pageCount = pageCount+1;
       //★ページを増やす
       //backFirstPage();
+      console.log(pageCount);
       successProcess(response);
       }).fail(function (jqXHR, textStatus, errorThrown) {
         //★エラーの場合の処理
@@ -55,7 +57,7 @@ $(function () {
     //console.log(response)
     const result = response['@graph'];
     //★@graphの取り出し
-    //console.log(response);
+    console.log(response);
     //console.log(result);
     //console.log(result[0]['@id']);
     const items = result[0]['items'];
@@ -75,17 +77,18 @@ $(function () {
         $listinner.append('<a href="'+items[i]['@id']+'"target="_blank">書籍情報</a>');
         //console.log(items[i]['@id']);
         //★listinnerの子要素としてDOMの挿入
-        const $div = $('<li class="lists-item" ></li>');
+        const listsItem = $('<li class="lists-item" ></li>');
         //★$divに代入
-        $div.append($listinner);
+        listsItem.append($listinner);
         //★＄divの子要素としてDOMの挿入
-        $div.appendTo('.lists');
-      })}
-    if(totalResults　== 0){
+        listsItem.appendTo('.lists');
+      })}else{
+        //それ以外の時
       $(".inner").prepend('<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索してください。</div>');
-    }
+       //DOM追加
+      }
   };
-  function errorProcess(jqXHR, textStatus, errorThrown){
+  function errorProcess(/*jqXHR, textStatus, errorThrown*/){
     $(".inner").prepend('<div class="message">正常に通信できませんでした。<br>インターネットの接続の確認をしてください。</div>');
         //★DOMの挿入
         //console.log("ajax通信に失敗しました");

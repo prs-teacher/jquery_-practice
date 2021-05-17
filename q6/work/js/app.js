@@ -9,7 +9,7 @@ $(function () {
       //選択したvalueがallだった場合
       $(".food-list li").show();
     }else{
-      for (var i=0; i<count; i++){
+      for (let i=0; i<count; i++){
       //フードリストの要素数分、forで繰り返す
       const kind =$(".food-list li").eq(i);
       const food =$(".food-list li").eq(i).data("categoryType");
