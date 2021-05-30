@@ -11,7 +11,7 @@
 // });
 
 $(function () {
-  let pageCount = 1;
+  let pageCount = 0;
 
   $(".search-btn").on("click",function (){
     //サーチボタンクリックしたら
@@ -34,7 +34,7 @@ $(function () {
         //console.log(val);
         $(".lists").empty();
         ////★DOMの削除
-        pageCount = 1;
+        pageCount = 0;
         //★１ページめに戻る
         console.log(pageCount);
       });
@@ -88,13 +88,23 @@ $(function () {
        //DOM追加
       }
   };
-  function errorProcess(/*jqXHR, textStatus, errorThrown*/){
-    $(".inner").prepend('<div class="message">正常に通信できませんでした。<br>インターネットの接続の確認をしてください。</div>');
-        //★DOMの挿入
-        //console.log("ajax通信に失敗しました");
-        //console.log("jqXHR          : " + jqXHR.status); // HTTPステータスが取得
-        //console.log("textStatus     : " + textStatus);    // タイムアウト、パースエラー
-        //console.log("errorThrown    : " + errorThrown.message); // 例外情報
+  function errorProcess(jqXHR){
+    $(".lists").empty();
+    //DOM削除
+    if(jqXHR.status === 0){
+      //タイムアウトエラー
+      $(".inner").prepend('<div class="message">正常に通信できませんでした。<br>インターネットの接続の確認をしてください。</div>');
+      //★DOMの挿入
+    }
+    if(jqXHR.status === 404){
+      //ページないエラー
+      $(".inner").prepend('<div class="message">正常に通信できませんでした。<br>インターネットの接続の確認をしてください。</div>');
+      //★DOMの挿入
+    }
+        /*console.log("ajax通信に失敗しました");
+        console.log("jqXHR          : " + jqXHR.status); // HTTPステータスが取得
+        console.log("textStatus     : " + textStatus);    // タイムアウト、パースエラー
+        console.log("errorThrown    : " + errorThrown.message); // 例外情報*/
   };
 
   $(".reset-btn").on("click",function(){
