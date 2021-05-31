@@ -36,7 +36,7 @@ $(function () {
         ////★DOMの削除
         pageCount = 0;
         //★１ページめに戻る
-        console.log(pageCount);
+        //console.log(pageCount);
       });
     //}
 
