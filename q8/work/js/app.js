@@ -45,7 +45,7 @@ $(function () {
       pageCount = pageCount+1;
       //★ページを増やす
       //backFirstPage();
-      console.log(pageCount);
+      //console.log(pageCount);
       successProcess(response);
       }).fail(function (jqXHR, textStatus, errorThrown) {
         //★エラーの場合の処理
@@ -57,7 +57,7 @@ $(function () {
     //console.log(response)
     const result = response['@graph'];
     //★@graphの取り出し
-    console.log(response);
+    //console.log(response);
     //console.log(result);
     //console.log(result[0]['@id']);
     const items = result[0]['items'];
