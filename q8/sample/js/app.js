@@ -14,4 +14,4 @@ $(function () {
         $(".lists").before('<div class="message">\u4e88\u671f\u305b\u306c\u30a8\u30e9\u30fc\u304c\u8d77\u304d\u307e\u3057\u305f\u3002<br>\u518d\u8aad\u307f\u8fbc\u307f\u3092\u884c\u3063\u3066\u304f\u3060\u3055\u3044\u3002</div>')
     })
   }); $(".reset-btn").on("click", function () { d = 1; f = ""; $(".lists").empty(); $(".message").remove(); $("#search-input").val("") })
-});
+}); 
